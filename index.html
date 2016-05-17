@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+ 
+<head> 
+	<title>BWBAN by Emanuele Feronato</title>
+	<link href="style.css" rel="stylesheet" type="text/css"/>
+	<script src = "http://code.jquery.com/jquery-2.0.3.min.js"></script>
+	<script src = "pep.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("#gamecontrols").pep({
+				useCSSTranslation: false,
+  				constrainTo: "window"
+			});
+               $(".control").on("touchend click",function(){
+                    var k = $(this).attr("id").split("_");
+                    var keyPressed = parseInt(k[1]);
+                    javascript:checkKey({
+                         keyCode:keyPressed
+                    }, true);
+               })
+		});
+	</script>
+</head> 
+
+<body> 
+	<div class="gameContainer"> 
+		<canvas id="gameCanvas" onmousemove="mouseMove(event)" onmouseout="mouseOut()" onkeydown="keyDown()"></canvas> 
+	</div>
+	<div id = "gamecontrols">
+		<div class = "empty"></div>
+          <div class = "control up" id = "ctrl_38"></div>
+          <div class = "empty dragme"></div>
+          <div class = "control left" id = "ctrl_37"></div>
+          <div class = "control action" id = "ctrl_88"></div>
+          <div class = "control right" id = "ctrl_39"></div>
+          <div class = "control undo" id = "ctrl_90"></div>
+          <div class = "control down" id = "ctrl_40"></div>
+          <div class = "control restart" id = "ctrl_82"></div>
+          <div style = "clear:both"></div>
+	</div> 
+	<script src = "init.js"></script>
+	<script src = "tags.js"></script>
+	<script src = "fonts.js"></script>
+	<script src = "rc4.js"></script>
+	<script src = "fastbase.js"></script>
+	<script src = "params.js"></script>
+	<script src = "palettes.js"></script>
+	<script src = "setpixel.js"></script>
+	<script src = "recalc.js"></script>
+	<script src = "unload.js"></script>
+	<script src = "mouse.js"></script>
+	<script src = "data.js"></script>
+</body>
+ 
+</html>
